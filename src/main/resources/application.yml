@@ -1,0 +1,11 @@
+server:
+  port: 80
+  
+spring:  datasource:    url: jdbc:mysql://localhost:3306/marondalgram_210520?serverTimezone=UTC&characterEncoding=UTF-8 # DB를 잘 입력하자 틀리면 나중에 여기와서 찾기 힘들어진다.
+    username: root
+    password: root # 비밀번호는 공걔가 되니 자주쓰는 걸로 쓰지마자
+    driver-class-name: com.mysql.cj.jdbc.Driver
+      mvc:    view:      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    
+    static-path-pattern: /static/**
