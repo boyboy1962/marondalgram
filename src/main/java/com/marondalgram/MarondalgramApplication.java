@@ -1,11 +1,9 @@
 package com.marondalgram;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})//ÀÓ½Ã·Î DB¸¦ »ç¿ëÇÏÁö ¾Ê´Â´Ù.
+///@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})//ï¿½Ó½Ã·ï¿½ DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 @SpringBootApplication
 public class MarondalgramApplication {
 
