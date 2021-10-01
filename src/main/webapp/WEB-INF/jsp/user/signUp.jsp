@@ -12,7 +12,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text">아이디</span>
 					</div>
-					<input type="text" class="form-control" id="id" name="id"
+					<input type="text" class="form-control" id="loginId" name="loginId"
 						placeholder="아이디 입력">
 				</div>
 				<button type="button" id="loginIdCheckBtn" class="btn btn-success">중복확인</button>
@@ -82,3 +82,50 @@
 	</div>
 	<div class="col-2"></div>
 </div>
+
+<script>
+	$(document).ready(function(){
+		// 아이디 중복확인
+		$('#loginIdCheckBtn').on('click', function(e){
+			let loginId = $('#loginId').val().trim();
+			
+			// alert(loginId); 확인 완료
+			// "checkId" "idCheckLength" "idCheckDuplicated" "idCheckOk"
+			if (loginId.length < 4) {
+				$('#checkId').addClass('d-none');
+				$('#idCheckLength').removeClass('d-none'); // 경고문구 노출
+				$('#idCheckDuplicated').addClass('d-none'); // 숨김
+				$('#idCheckOk').addClass('d-none'); // 숨김
+				return;
+			}
+			
+			// ajax 서버 호출(중복여부)
+			$.ajax({
+				type:'post'
+				, url: '/user/is_duplicated_id'
+				, data: {'loginId':loginId}
+				, success: function(data){
+					alert(data.result)
+					//alert(data.result)
+					
+					if (data.result) {
+						// 중복이다.
+						$('#checkId').addClass('d-none');
+						$('#idCheckLength').addClass('d-none');
+						$('#idCheckDuplicated').removeClass('d-none'); // 경고문구 노출
+						$('#idCheckOk').addClass('d-none'); 
+					} else {
+						// 가능하다. 	
+						$('#checkId').addClass('d-none');
+						$('#idCheckLength').addClass('d-none'); 
+						$('#idCheckDuplicated').addClass('d-none'); 
+						$('#idCheckOk').removeClass('d-none'); // 경고?문구 노출
+					}
+				}
+				, error: function(e){
+					alert("아이디 중복확인에 실패했습니다. 관리자에게 문의해주세요.")
+				}
+			});
+		});
+	});
+</script>

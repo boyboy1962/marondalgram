@@ -24,13 +24,13 @@ public class TestController {
 	
 	//DB ���� �׽�Ʈ
 	@ResponseBody
-	@RequestMapping("testDB")
+	@RequestMapping("/testDB")
 	public List<Map<String, Object>> testBD () {
 		return testBO.getUserList();
 	}
 	
 	//JSP 페이지 테스트
-	@RequestMapping("testJSP")
+	@RequestMapping("/testJSP")
 	public String testJSP () {
 		return "test/test";
 	}
