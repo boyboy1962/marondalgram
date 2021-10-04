@@ -21,8 +21,8 @@
 					placeholder="····">
 			</div>
 			<div class="d-flex">
-				<button type="submit" class="btn btn-secondary mr-3 w-50">회원가입</button>
-				<button type="submit" class="btn btn-primary ml-3 w-50">로그인</button>
+				<a href="/user/sign_up_view" class="btn btn-secondary mr-3 w-50">회원가입</a>
+				<button type="button" class="btn btn-primary ml-3 w-50">로그인</button>
 			</div>
 		</form>
 	</div>

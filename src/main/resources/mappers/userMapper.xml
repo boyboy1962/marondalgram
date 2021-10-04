@@ -11,4 +11,23 @@
  		WHERE
  			`loginId` = #{loginId}
  	</select>
+ 	
+ 	<insert id="insertUser" parameterType="com.marondalgram.user.model.User">
+ 		INSERT INTO 
+ 			`user`
+ 			(
+	 			`loginId`
+				,`password`
+				,`name`
+				,`email`
+			)
+		VALUES
+		(
+			#{loginId}
+			,#{password}
+			,#{name}
+			,#{email}
+		)
+		
+ 	</insert>
  </mapper>

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.marondalgram.user.dao.UserDAO;
+import com.marondalgram.user.model.User;
 
 @Service
 public class UserBO {
@@ -13,6 +14,10 @@ public class UserBO {
 	
 	public boolean existLoginId(String loginId) {
 		return userDAO.existLoginId(loginId);
+	}
+
+	public void addUser(User user) {
+		userDAO.insertUser(user);
 	}
 
 }
