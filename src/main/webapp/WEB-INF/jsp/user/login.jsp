@@ -5,7 +5,7 @@
 	<div class="col-3"></div>
 	<div class="col-6">
 		<h1 class="mt-3">로그인</h1>
-		<form method="POST" action="/servlet/quiz10" class="center-box p-5">
+		<form id="loginForm" method="POST" action="/user/sign_in" class="center-box p-5">
 			<div class="input-group w-100 mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">ID</span>
@@ -28,3 +28,39 @@
 	</div>
 	<div class="col-3"></div>
 </div>
+
+<script>
+	$(document).ready(function(e){
+		$('#loginForm').submit(function(e){
+			e.preeventDefault();
+			alert("1");
+			// validation
+			let loginId = $("#id").val().trim();
+			if (loginId == ''){
+				alert("아이디를 입력해주세요.");
+				return false;
+			}
+			
+			let password = $("#pw").val();
+			if (password == ''){
+				alert("비밀번호를 입력해주세요.");
+				return false;
+			}
+			
+			let url = $('#loginForm').attr('action');
+			let data = $('loginForm').serialize();
+			console.log("url: " + url);
+			console.log("data: " + data);
+			
+			$.post(url, data)
+			.done(function(data){
+				if (data.result == 'success') {
+					location.href = "/post/post_list_view";
+				} else {
+					alert("로그인에 실패했습니다. 다시 시도해주세요.");
+				}
+			})
+		});
+		
+	})
+</script>
