@@ -20,4 +20,8 @@ public class UserBO {
 		userDAO.insertUser(user);
 	}
 
+	public User getUserInfoByUserInput_LoginIdAndPassword_(User userInput) {
+		return userDAO.selectUserInfoByUserInput_LoginIdAndPassword_(userInput);
+	}
+
 }

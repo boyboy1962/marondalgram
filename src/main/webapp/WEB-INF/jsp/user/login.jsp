@@ -10,19 +10,19 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text">ID</span>
 				</div>
-				<input type="text" class="form-control" id="id" name="id"
+				<input type="text" class="form-control" id="id" name="loginId"
 					placeholder="Username">
 			</div>
 			<div class="input-group w-100 mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">PW</span>
 				</div>
-				<input type="password" class="form-control" id="pw" name="pw"
+				<input type="password" class="form-control" id="pw" name="password"
 					placeholder="····">
 			</div>
 			<div class="d-flex">
 				<a href="/user/sign_up_view" class="btn btn-secondary mr-3 w-50">회원가입</a>
-				<button type="button" class="btn btn-primary ml-3 w-50">로그인</button>
+				<button type="submit" class="btn btn-primary ml-3 w-50">로그인</button>
 			</div>
 		</form>
 	</div>
@@ -32,8 +32,8 @@
 <script>
 	$(document).ready(function(e){
 		$('#loginForm').submit(function(e){
-			e.preeventDefault();
-			alert("1");
+			e.preventDefault();
+			
 			// validation
 			let loginId = $("#id").val().trim();
 			if (loginId == ''){
@@ -48,7 +48,7 @@
 			}
 			
 			let url = $('#loginForm').attr('action');
-			let data = $('loginForm').serialize();
+			let data = $('#loginForm').serialize();
 			console.log("url: " + url);
 			console.log("data: " + data);
 			
@@ -57,7 +57,7 @@
 				if (data.result == 'success') {
 					location.href = "/post/post_list_view";
 				} else {
-					alert("로그인에 실패했습니다. 다시 시도해주세요.");
+					alert("입력하신 아이디 혹은 비밀번호가 맞지 않습니다.");
 				}
 			})
 		});

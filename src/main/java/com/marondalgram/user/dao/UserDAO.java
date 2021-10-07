@@ -11,4 +11,6 @@ public interface UserDAO {
 
 	public void insertUser(User user);
 
+	public User selectUserInfoByUserInput_LoginIdAndPassword_(User userInput);
+
 }
