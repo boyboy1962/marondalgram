@@ -55,7 +55,7 @@
 			$.post(url, data)
 			.done(function(data){
 				if (data.result == 'success') {
-					location.href = "/post/post_create_view";
+					location.href = "/post/post_timeline_view";
 				} else {
 					alert("입력하신 아이디 혹은 비밀번호가 맞지 않습니다.");
 				}

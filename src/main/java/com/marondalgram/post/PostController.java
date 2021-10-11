@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/post")
 public class PostController {
 	
-	@RequestMapping("/post_create_view")
+	@RequestMapping("/post_timeline_view")
 	public String postCreateView (Model model) {
-
-		model.addAttribute("viewName", "post/postCreate");
+		
 		return "template/layoutPost";
 	}
 	

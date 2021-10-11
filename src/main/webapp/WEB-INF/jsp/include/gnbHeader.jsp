@@ -14,5 +14,8 @@
 				<a href="/user/sign_out">로그아웃</a>
 			</div>
 		</c:if>
+		<c:if test="${empty userId}">
+			<a href="/user/login_view">로그인</a>
+		</c:if>
 	</div>
 </header>

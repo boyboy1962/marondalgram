@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+	
 	<!-- bootstrap CDN link -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -21,8 +23,12 @@
 		<!-- gnb 부분 로고, 유저이름, 로그아웃이 위치한다.  -->
 		<jsp:include page="../include/gnbHeader.jsp"/>
 		
-		<!-- postCreate 부분 -->
-		<jsp:include page="../${viewName}.jsp"/>
+		<!-- 글 저장하기 부분 -->
+		<c:if test="${not empty userId}">
+			<jsp:include page="../post/postCreate.jsp"/>
+		</c:if>
+		<!-- 타임라인 보이는 부분 -->
+		<jsp:include page=""/>
 		
 	</div>
 </body>
