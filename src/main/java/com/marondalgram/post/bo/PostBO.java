@@ -1,6 +1,7 @@
 package com.marondalgram.post.bo;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,10 @@ public class PostBO {
 		post.setUserName(userName);
 
 		return postDAO.insertPost(post);
+	}
+
+	public List<Post> getPostList() {
+		return postDAO.selectPostList();
 	}
 
 }

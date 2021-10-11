@@ -19,8 +19,8 @@ public class FileManagerService {
 
 	// 실제 이미지가 저장될 경로
 	// D:\1. 장재훈\6._spring_project\1. MEMO\memo_workspace\Memo\images
-	// public final static String FILE_UPLOAD_PATH = "D:\\1. 장재훈\\6._spring_project\\2. MARNDALGRAM\\marndalgram_worksapce\\images/"; //상수처럼 행동하고 고칠 수 없다.
-	public final static String FILE_UPLOAD_PATH = "C:\\Users\\jajan\\Documents\\Workspace\\6._spring_project\\2. MARNDALGRAM\\marndalgram_worksapce\\images/"; //상수처럼 행동하고 고칠 수 없다.
+	public final static String FILE_UPLOAD_PATH = "D:\\1. 장재훈\\6._spring_project\\2. MARONDALGRAM\\marondalgram_workspace\\images/"; //상수처럼 행동하고 고칠 수 없다.
+	//public final static String FILE_UPLOAD_PATH = "C:\\Users\\jajan\\Documents\\Workspace\\6._spring_project\\2. MARNDALGRAM\\marndalgram_worksapce\\images/"; //상수처럼 행동하고 고칠 수 없다.
 	
 	
 	public String saveFile(String loginId, MultipartFile file) throws IOException {

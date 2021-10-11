@@ -23,13 +23,21 @@
 		<!-- gnb 부분 로고, 유저이름, 로그아웃이 위치한다.  -->
 		<jsp:include page="../include/gnbHeader.jsp"/>
 		
-		<!-- 글 저장하기 부분 -->
-		<c:if test="${not empty userId}">
-			<jsp:include page="../post/postCreate.jsp"/>
-		</c:if>
-		<!-- 타임라인 보이는 부분 -->
-		<jsp:include page=""/>
+		<div class="create-box d-flex">
+			<div class="col-2"></div>
+			<div class="col-7">
 		
+				<!-- 글 저장하기 부분 -->
+				<c:if test="${not empty userId}">
+					<jsp:include page="../post/create.jsp"/>
+				</c:if>
+				
+				<!-- 타임라인 보이는 부분 -->
+				<jsp:include page="../post/timeline.jsp"/>
+		
+			</div>
+			<div class="col-3"></div>
+		</div>	
 	</div>
 </body>
 </html>

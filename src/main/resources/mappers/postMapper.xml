@@ -20,4 +20,19 @@
 				,#{content}
 			)
 	</insert>
+	<select id="selectPostList" resultType="com.marondalgram.post.model.Post">
+		SELECT
+			`id`
+			,`userId`
+			,`userName`
+			,`content`
+			,`imgUrl`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`post`
+		ORDER BY
+			`id`
+		DESC
+	</select>
 </mapper>
