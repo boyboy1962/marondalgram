@@ -32,7 +32,6 @@ public class LikeRestController {
 		
 		// 결과 값을 준비합니다.
 		Map<String, Object> result = new HashMap<>();
-		result.put("result", "success");
 		
 		// 만약 세션종료로 로그아웃이 되었다면 로그인 페이지로 보내기 위해 준비합니다.
 		if (userId == null) {
@@ -43,6 +42,12 @@ public class LikeRestController {
 		
 		// DB에 like를 저장할 준비를 합니다.
 		boolean likePost = BO.isPostLikedByUserIdAndPostId(userId, postId);
+		
+		if (likePost) {
+			result.put("result", "like");
+		} else {
+			result.put("result", "dislike");
+		}
 		
 		return result;
 	}

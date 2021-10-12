@@ -12,21 +12,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.marondalgram.post.bo.PostBO;
 import com.marondalgram.post.model.Post;
+import com.marondalgram.timeline.bo.TimelineBO;
+import com.marondalgram.timeline.model.Content;
 
 @Controller
 @RequestMapping("/post")
 public class TimelineController {
 	
 	@Autowired
-	private PostBO postBO; 
+	private TimelineBO timelineBO; 
 	
 	@RequestMapping("/post_timeline_view")
 	public String postCreateView (HttpServletRequest request, Model model) {
 		
 		// 글 목록을 가져온다.
-		List<Post> postList = postBO.getPostList();	
+		List<Content> contentList = timelineBO.createCardList();
 		
-		model.addAttribute("postList", postList);
+		model.addAttribute("contentList", contentList);
 		
 		return "template/layoutPost";
 	}

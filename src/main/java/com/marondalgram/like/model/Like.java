@@ -6,7 +6,7 @@ public class Like {
 	private int postId;
 	private int userId;
 	private Date createdAt;
-	private int likePost;
+	private Integer likePost;
 	private Date updatedAt;
 	public int getPostId() {
 		return postId;
@@ -26,10 +26,10 @@ public class Like {
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-	public int getLikePost() {
+	public Integer getLikePost() {
 		return likePost;
 	}
-	public void setLikePost(int likePost) {
+	public void setLikePost(Integer likePost) {
 		this.likePost = likePost;
 	}
 	public Date getUpdatedAt() {

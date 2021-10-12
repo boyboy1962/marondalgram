@@ -7,6 +7,10 @@ import com.marondalgram.like.model.Like;
 @Repository
 public interface LikeDAO {
 
-	Like checkPostLikedByUserIdAndPostId(Like like);
+	Like selectLikePostByUserIdAndPostId(Like like);
+
+	void updateLikePostByUserIdAndPostId(Like like);
+
+	void insertLike(Like like);
 
 }

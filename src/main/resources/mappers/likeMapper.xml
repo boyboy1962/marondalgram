@@ -3,9 +3,11 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="com.marondalgram.like.dao.LikeDAO">
-	<select id="checkPostLikedByUserIdAndPostId" parameterType="com.marondalgram.like.model.Like" resultType="com.marondalgram.like.model.Like">
+	<select id="selectLikePostByUserIdAndPostId" parameterType="com.marondalgram.like.model.Like" resultType="com.marondalgram.like.model.Like">
 		SELECT
 			`likePost`
+			,`userId`
+			,`postId`
 		FROM
 			`like`
 		WHERE
@@ -13,4 +15,32 @@
 		AND
 			`postId` = #{postId}
 	</select>
+	
+	<insert id="insertLike" parameterType="com.marondalgram.like.model.Like">
+		INSERT INTO
+			`like`
+			(
+				`postId`
+				,`userId`
+				,`likePost`
+			)
+			VALUES
+			(
+				#{postId}
+				,#{userId}
+				,#{likePost}
+			)
+	</insert>
+	
+	<update id="updateLikePostByUserIdAndPostId" parameterType="com.marondalgram.like.model.Like">
+		UPDATE
+			`like`
+		SET
+			`likePost` = #{likePost}
+		WHERE
+			`userId` = #{userId}
+		AND
+			`postId` = #{postId}
+			
+	</update>
 </mapper>
