@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,8 @@ import com.marondalgram.like.bo.LikeBO;
 @RequestMapping("/like")
 public class LikeRestController {
 	
+	private Logger logger = LoggerFactory.getLogger(this.getClass()); // 잘 안될때 에러를 볼려고 추가를 한다.
+	
 	@Autowired
 	private LikeBO BO;
 	
@@ -26,6 +30,8 @@ public class LikeRestController {
 				@RequestParam("postId") int postId
 				, HttpServletRequest request
 			){
+		logger.info("postId: " + postId);
+		
 		// user ID가저오기
 		HttpSession session = request.getSession();
 		Integer userId = (Integer) session.getAttribute("userId");

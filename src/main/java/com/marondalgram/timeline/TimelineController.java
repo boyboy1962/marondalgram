@@ -25,8 +25,11 @@ public class TimelineController {
 	@RequestMapping("/post_timeline_view")
 	public String postCreateView (HttpServletRequest request, Model model) {
 		
+		HttpSession session = request.getSession();
+		Integer userId = (Integer) session.getAttribute("userId");
+		
 		// 글 목록을 가져온다.
-		List<Content> contentList = timelineBO.createCardList();
+		List<Content> contentList = timelineBO.createCardList(userId);
 		
 		model.addAttribute("contentList", contentList);
 		

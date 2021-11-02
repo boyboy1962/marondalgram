@@ -22,14 +22,14 @@ public class TimelineBO {
 	@Autowired
 	private LikeBO likeBO;
 
-	public List<Content> createCardList() {
+	public List<Content> createCardList(Integer userId) {
 		List<Post> postList = postBO.getPostList();
 		
 		List<Content> contentList = new ArrayList<Content>();
 		for (Post post : postList) {
 			Content content = new Content();
 			content.setPost(post);
-			Like like = likeBO.findPostLikedByUserIdAndPostId(content.getPost().getUserId(), content.getPost().getId());
+			Like like = likeBO.findPostLikedByUserIdAndPostId(userId, content.getPost().getId());
 			content.setLike(like);
 			
 			

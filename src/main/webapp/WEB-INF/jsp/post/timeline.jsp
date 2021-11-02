@@ -35,7 +35,7 @@
 				<%-- <a class="likeBtn" href="like/like_click?contentId=${content.pocontent.post. --%>
 				<a class="likeBtn" href="#" data-post-id="${content.post.id}">
 					<c:choose>
-					<c:when test="${content.like.likePost eq 1 && content.like.userId eq userId}">
+					<c:when test="${content.like.likePost eq 1}">
 						<img src="https://www.iconninja.com/files/527/809/128/heart-icon.png" width="18px" height="18px">
 					</c:when>
 					<c:otherwise>
@@ -105,7 +105,7 @@ $(document).ready(function(){
 		let postId = $(this).data('post-id');
 		
 		console.log(postId);
-		// alert("눌림 확인");	
+		 alert("눌림 확인");	
 		
 		$.ajax({
 			type: 'get'
